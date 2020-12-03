@@ -89,6 +89,6 @@ $ npm run start
 ```
 $ cd backend
 $ npm i
-$ npm run dev
+$ node --experimental-json-modules src/index.js
 // web server listening on local port 9090
 ```
