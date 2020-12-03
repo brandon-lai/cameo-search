@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
@@ -6,29 +6,49 @@ import config from '../config';
 import logo from './static/logo.svg';
 import './style.css';
 
-/*
-This is a stubbed React functional component using React Effects and Hooks
-https://reactjs.org/docs/hooks-effect.html
-Feel free to use React class components and lifecycle hooks if that is more comfortable for you
-*/
-function App() {
-  const [dataFromApi, setDataFromApi] = useState();
+import Search from './search';
 
-  useEffect(() => {
-    async function fetchDataFromApi() {
-      const apiResponse = await axios.get(config.API_URL);
-      setDataFromApi(apiResponse.data);
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      dataFromApi: [],
+      query: ''
     }
-    fetchDataFromApi();
-  }, []);
+  }
 
-  return (
-    <div id="app">
-      <img src={logo} alt="logo" />
-      <h1>Welcome to your interview!</h1>
-      {/* {dataFromApi} */}
-    </div>
-  );
+  searchAPI = config.API_URL + '/search';
+
+  componentDidMount() {
+    console.log(config.API_URL);
+    axios.get(config.API_URL)
+      .then(res => {
+        console.log(res.data);
+      }, error => {
+        console.log(error);
+      });
+  }
+
+  search = (query) => {
+    console.log(query);
+    axios.get(this.searchAPI)
+      .then(res => {
+        console.log(res.data);
+      }, error => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    return (
+      <div id="app">
+        <img src={logo} alt="logo" />
+        <h1>Welcome to your interview!</h1>
+        <Search query={this.search} />
+        <h1>{this.state.dataFromApi}</h1>
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('main'));

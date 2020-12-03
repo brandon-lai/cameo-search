@@ -26,7 +26,8 @@ app.get('/', (req, res) => {
 * Note: A list of Cameo talent is provided in TALENT_DATA.json
 */
 app.get('/search', (req, res) => {
-  res.send('Return your search results here');
+  // res.send('Return your search results here');
+  res.send(talentData);
 });
 
 app.listen(PORT);
