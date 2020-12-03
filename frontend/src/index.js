@@ -26,7 +26,7 @@ function App() {
     <div id="app">
       <img src={logo} alt="logo" />
       <h1>Welcome to your interview!</h1>
-      {dataFromApi}
+      {/* {dataFromApi} */}
     </div>
   );
 }
