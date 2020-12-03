@@ -7,6 +7,7 @@ import logo from './static/logo.svg';
 import './style.css';
 
 import Search from './search';
+import List from './list';
 
 class App extends Component {
   constructor() {
@@ -33,7 +34,10 @@ class App extends Component {
     console.log(query);
     axios.get(this.searchAPI)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
+        this.setState({ dataFromApi: res.data });
+        // console.log(this.state.dataFromApi);
+        //TODO Process dataFromAPI based on query
       }, error => {
         console.log(error);
       });
@@ -45,7 +49,7 @@ class App extends Component {
         <img src={logo} alt="logo" />
         <h1>Welcome to your interview!</h1>
         <Search query={this.search} />
-        <h1>{this.state.dataFromApi}</h1>
+        <List dataFromAPI={this.state.dataFromApi} />
       </div>
     );
   }
