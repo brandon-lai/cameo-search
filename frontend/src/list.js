@@ -1,5 +1,6 @@
 import React from 'react';
 import uuid from 'react-uuid';
+import './style.css';
 
 const List = ({ dataFromAPI }) => {
     const list = dataFromAPI.length ? (
@@ -7,22 +8,33 @@ const List = ({ dataFromAPI }) => {
             console.log(data);
             if (data.name) {
                 return (
-                    <div key={uuid()}>
+                    <div className="grid" key={uuid()}>
                         <span>{data.name}</span>
+                        <span>{data.username}</span>
+                        <span>{data.price}</span>
+                        <span>{data.category}</span>
+                        <span>{data.score}</span>
                     </div>
                 )
             }
             else {
                 return (
-                    <p>No matching results found :(</p>
+                    <p className="no_match">No matching results found :(</p>
                 )
             }
         })
     ) : (
-        <p>No search results yet!</p>
+        <p className="no_match">No search results yet!</p>
     )
     return (
         <div className="list">
+            <div className="grid" key={uuid()}>
+                <h3>Name</h3>
+                <h3>Username</h3>
+                <h3>Price (USD)</h3>
+                <h3>Category</h3>
+                <h3>Score</h3>
+            </div>
             {list}
         </div>
     )

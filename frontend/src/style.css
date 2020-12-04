@@ -10,3 +10,23 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.grid {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto auto;
+  width: 100%;
+  justify-self: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.list {
+  display: inline-block;
+  width: 100%;
+
+}
+
+.no_match {
+  position: relative;
+  text-align: center;
+}
