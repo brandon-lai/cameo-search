@@ -44,7 +44,7 @@ class App extends Component {
     return (
       <div id="app">
         <img src={logo} alt="logo" />
-        <h1>Welcome to your interview!</h1>
+        <h1>Welcome to Cameo!</h1>
         <Search query={this.search} />
         <List dataFromAPI={this.state.dataFromApi} />
       </div>
