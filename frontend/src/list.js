@@ -5,11 +5,18 @@ const List = ({ dataFromAPI }) => {
     const list = dataFromAPI.length ? (
         dataFromAPI.map(data => {
             console.log(data);
-            return (
-                <div key={uuid()}>
-                    <span>{data.name}</span>
-                </div>
-            )
+            if (data.name) {
+                return (
+                    <div key={uuid()}>
+                        <span>{data.name}</span>
+                    </div>
+                )
+            }
+            else {
+                return (
+                    <p>No matching results found :(</p>
+                )
+            }
         })
     ) : (
         <p>No search results yet!</p>

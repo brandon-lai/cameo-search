@@ -29,6 +29,9 @@ app.get('/search/', (req, res) => {
   var wantedData = talentData.filter(function(entry) {
     return entry.name == req.query.searchId || entry.username == req.query.searchId || entry.category == req.query.searchId;
   });
+  if (!wantedData || !wantedData.length) {
+    wantedData.push('No matching results found :(');
+  }
   res.send(wantedData);
 });
 
