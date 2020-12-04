@@ -31,13 +31,10 @@ class App extends Component {
   }
 
   search = (query) => {
-    console.log(query);
-    axios.get(this.searchAPI)
+    console.log(query.content);
+    axios.get(this.searchAPI + '?searchId=' + query.content)
       .then(res => {
-        // console.log(res.data);
         this.setState({ dataFromApi: res.data });
-        // console.log(this.state.dataFromApi);
-        //TODO Process dataFromAPI based on query
       }, error => {
         console.log(error);
       });

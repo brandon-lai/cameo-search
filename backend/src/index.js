@@ -25,9 +25,11 @@ app.get('/', (req, res) => {
 * A user should be able to search by username, name, or category.
 * Note: A list of Cameo talent is provided in TALENT_DATA.json
 */
-app.get('/search', (req, res) => {
-  // res.send('Return your search results here');
-  res.send(talentData);
+app.get('/search/', (req, res) => {
+  var wantedData = talentData.filter(function(entry) {
+    return entry.name == req.query.searchId || entry.username == req.query.searchId || entry.category == req.query.searchId;
+  });
+  res.send(wantedData);
 });
 
 app.listen(PORT);
