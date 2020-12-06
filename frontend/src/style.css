@@ -13,7 +13,7 @@ body {
 
 .grid {
   display: inline-grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto;
   width: 100%;
   justify-self: center;
   text-align: center;
@@ -29,4 +29,9 @@ body {
 .no_match {
   position: relative;
   text-align: center;
+}
+
+.select {
+  display: block;
+  width: 50%
 }

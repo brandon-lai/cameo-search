@@ -14,6 +14,7 @@ const List = ({ dataFromAPI }) => {
                         <span>{data.price}</span>
                         <span>{data.category}</span>
                         <span>{data.score}</span>
+                        <span>{data.lastActiveAt}</span>
                     </div>
                 )
             }
@@ -34,6 +35,7 @@ const List = ({ dataFromAPI }) => {
                 <h3>Price (USD)</h3>
                 <h3>Category</h3>
                 <h3>Score</h3>
+                <h3>LastActiveAt</h3>
             </div>
             {list}
         </div>
