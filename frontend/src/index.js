@@ -14,8 +14,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortOptions: [{label: "Price", value: "price"}, {label: "Score", value: "score"}, {label: "LastActiveAt", value: "lastActiveAt"}],
+      sortOptions: [{label: "Price", value: "price"}, {label: "Score", value: "score"}, {label: "Last Active At", value: "lastActiveAt"}],
       sort: '',
+      filterOptions: [{label: "Is Available For Direct Message", value: "isAvailableForDirectMessage"}, {label: "Is Available For Business Requests", value: "isAvailableForBusinessRequests"}],
+      filter: '',
       dataFromApi: [],
       query: ''
     }
@@ -69,6 +71,13 @@ class App extends Component {
     }
   }
 
+  setFilter = (filter) => {
+    console.log(filter);
+    this.setState({
+      filter: filter.value
+    })
+  }
+
   render() {
     return (
       <div id="app">
@@ -76,9 +85,10 @@ class App extends Component {
         <h1>Welcome to Cameo Search!</h1>
         <div className="select">
           <Search query={this.search} />
-          <Select options={this.state.sortOptions} onChange={this.setSort}/>
+          <label>Sort: </label><Select options={this.state.sortOptions} onChange={this.setSort} />
+          <label>Filter: </label><Select options={this.state.filterOptions} onChange={this.setFilter} />
           </div>
-        <List dataFromAPI={this.state.dataFromApi} />
+        <List dataFromAPI={this.state.dataFromApi} filter={this.state.filter} />
       </div>
     );
   }

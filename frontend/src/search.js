@@ -23,8 +23,8 @@ class search extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Search: </label>
-                    <input type="text" onChange={this.handleChange} value={this.state.content} placeholder="name, username, category"/>
+                    <label>Search: </label><br></br>
+                    <input type="text" onChange={this.handleChange} value={this.state.content} placeholder="name, username, category" />
                 </form>
             </div>
         )

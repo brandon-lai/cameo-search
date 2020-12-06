@@ -2,21 +2,48 @@ import React from 'react';
 import uuid from 'react-uuid';
 import './style.css';
 
-const List = ({ dataFromAPI }) => {
+const List = ({ dataFromAPI, filter }) => {
     const list = dataFromAPI.length ? (
         dataFromAPI.map(data => {
-            console.log(data);
             if (data.name) {
-                return (
-                    <div className="grid" key={uuid()}>
-                        <span>{data.name}</span>
-                        <span>{data.username}</span>
-                        <span>{data.price}</span>
-                        <span>{data.category}</span>
-                        <span>{data.score}</span>
-                        <span>{data.lastActiveAt}</span>
-                    </div>
-                )
+                if (filter) {
+                    if (filter === 'isAvailableForDirectMessage' && data.isAvailableForDirectMessage) {
+                        return (
+                            <div className="grid" key={uuid()}>
+                                <span>{data.name}</span>
+                                <span>{data.username}</span>
+                                <span>{data.price}</span>
+                                <span>{data.category}</span>
+                                <span>{data.score}</span>
+                                <span>{data.lastActiveAt}</span>
+                            </div>
+                        )
+                    }
+                    else if (filter === 'isAvailableForBusinessRequests' && data.isAvailableForBusinessRequests) {
+                        return (
+                            <div className="grid" key={uuid()}>
+                                <span>{data.name}</span>
+                                <span>{data.username}</span>
+                                <span>{data.price}</span>
+                                <span>{data.category}</span>
+                                <span>{data.score}</span>
+                                <span>{data.lastActiveAt}</span>
+                            </div>
+                        )
+                    }
+                }
+                else {
+                    return (
+                        <div className="grid" key={uuid()}>
+                            <span>{data.name}</span>
+                            <span>{data.username}</span>
+                            <span>{data.price}</span>
+                            <span>{data.category}</span>
+                            <span>{data.score}</span>
+                            <span>{data.lastActiveAt}</span>
+                        </div>
+                    )
+                }
             }
             else {
                 return (
@@ -35,7 +62,7 @@ const List = ({ dataFromAPI }) => {
                 <h3>Price (USD)</h3>
                 <h3>Category</h3>
                 <h3>Score</h3>
-                <h3>LastActiveAt</h3>
+                <h3>Last Active At</h3>
             </div>
             {list}
         </div>
