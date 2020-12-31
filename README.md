@@ -1,6 +1,6 @@
 # Cameo Search
 
-Cameo Search is a full-stack application to search and view Cameo talent extracted from a mock api and database. The backend is made with Express and the frontend is made with React. 
+Cameo Search is a full-stack application to search and view Cameo talent extracted from a mock API and database. The backend is made with Express and the frontend is made with React. 
 
 ## Functionality
 ### Backend
